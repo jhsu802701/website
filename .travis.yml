@@ -34,6 +34,8 @@ addons:
 before_install:
   - sudo ls /etc/mysql
   - sudo cat /etc/mysql/my.cnf
+  - sudo ls /etc/mysql/conf.d/
+  - sudo ls /etc/mysql/mysql.conf.d/
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
   - sudo mysql_upgrade
   - sudo service mysql restart
